@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2013-08-24T16:38:48
+# Project created by QtCreator 2013-08-25T07:39:57
 #
 #-------------------------------------------------
 
@@ -8,13 +8,13 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Orange
+TARGET = MediaHub
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mediahub.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mediahub.h
 
-FORMS    += mainwindow.ui
+FORMS    += mediahub.ui
