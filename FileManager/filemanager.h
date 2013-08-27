@@ -1,39 +1,20 @@
 #ifndef FILEMANAGER_H_
 #define FILEMANAGER_H_
 
+class AbstractResource;
+struct uuid_t;
+
 /**
- * @brief Orange Project's file manager
+ * @brief Project manager interface
  */
 
-#include <map>
-#include "Element.h"
-class QStandardItemModel;
-
-struct PROJECT_CONF {};
-
-class FileManager {
+class AbstractFileManager {
 	public:
-		// Project
-		FileManager();
-		~FileManager();
-		int init(char* path);
-		
-		// Project Metadata
-		//void readMetafile(char* path);
-		//void writeMetafile(char* path);
-		
-		// Elements
-		void addResource(Element* e);
-		void addResource(char* path);
-		void removeResource(Element* e);
-		void removeResource(int id);
-		Element* getResource(int id);
-		
-		// Visualization
-		QStandardItemModel* getProjectModel ();
-	private:
-		std::map<int,Element>* projectFiles;
-		char* rootFolder;
+		virtual int loadProject (const char* path)=0;
+		virtual int createProject  (const char* path)=0;
+		virtual AbstractResource* getResource (uuid_t uuid)=0;
+		virtual int addResource (AbstractResource &resource)=0;
+		virtual int removeResource (AbstractResource &resource)=0;
 }
 
-#endif //FILEMANAGER_H_
+#endif
